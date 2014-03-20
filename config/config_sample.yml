@@ -1,5 +1,6 @@
 hc_jid: 'jid@chat.hipchat.com/bot'
 hc_password: 'passwd'
-hc_nick: 'Hippo'
+hc_nick: 'nojbot'
 hc_room: 'room@conf.hipchat.com'
-hc_mention_name: 'hippo'
+hc_mention_name: 'nojbot'
+yaml_storage_path: '/var/tmp/nojbot.storage'

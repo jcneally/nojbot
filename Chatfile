@@ -24,7 +24,7 @@ Robut::Connection.configure do |config|
   config.enable_private_messaging = false
 
   # Come plugins require storage
-  Robut::Storage::YamlStore.file = File.join(File.dirname(__FILE__), "tmp", "bot.storage")
+  Robut::Storage::YamlStore.file = conf["yaml_storage_path"]
   config.store = Robut::Storage::YamlStore
 
   # Add a logger if you want to debug the connection
