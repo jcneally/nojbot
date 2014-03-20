@@ -30,7 +30,7 @@ describe Robut::Plugin::Points do
 
     it "let's you give points to yourself" do
       @plugin.handle(Time.now, "JajaB", "hahaha @JajaB +1 cause he's funny.")
-      @plugin.reply_to.replies.should eql(["HAHA, you're funny, ok."])
+      @plugin.reply_to.replies.should eql(["/me is amused by your antics.  Points have been awarded."])
     end
   end
 
@@ -41,7 +41,7 @@ describe Robut::Plugin::Points do
 
     it "doesn't let you give points to yourself" do
       @plugin.handle(Time.now, "JajaB", "hahaha @JajaB +1 cause he's funny.")
-      @plugin.reply_to.replies.should eql(["Giving yourself points eh?  Good luck with that."])
+      @plugin.reply_to.replies.should eql(["/me is not amused."])
     end
   end
 

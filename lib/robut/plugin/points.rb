@@ -29,9 +29,9 @@ class Robut::Plugin::Points
     else
       if Random.rand(100) <= 25
         store_points(to, points)
-        return "HAHA, you're funny, ok."
+        return "/me is amused by your antics.  Points have been awarded."
       else
-        return "Giving yourself points eh?  Good luck with that."
+        return "/me is not amused."
       end
     end
   end
