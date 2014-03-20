@@ -12,4 +12,9 @@ describe Robut::Plugin::Hug do
     @plugin.handle(Time.now, "noj", "@robut I need a hug...")
     @plugin.reply_to.replies.should eql(["https://dl.dropboxusercontent.com/u/9921601/virtual-hug.gif"])
   end
+
+  it "does not give you a hug if it's not mentioned" do
+    @plugin.handle(Time.now, "noj", "I need a hug...")
+    @plugin.reply_to.replies.should eql([])
+  end
 end
