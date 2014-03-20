@@ -1,9 +1,11 @@
 # Require plugins here
 require 'robut/plugin/help'
+require 'robut/plugin/points'
 
 # Add plugin classes to the Robut plugin list.
 # Plugins are handled in the order that they appear in this array.
 Robut::Plugin.plugins << Robut::Plugin::Help
+Robut::Plugin.plugins << Robut::Plugin::Points
 
 conf = YAML.load(File.read(File.join(File.dirname(__FILE__), "config", "config.yml")))
 
