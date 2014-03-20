@@ -4,7 +4,7 @@ class Robut::Plugin::Points
   desc "show points - List the scoreboard of hipchat points (separate from nojpoints!)"
 
   def handle(time, sender_nick, message)
-    if without_nick(message).match(/^show points/i)
+    if without_nick(message).match(/^show points/i) and sent_to_me?(message)
       show_points
     else
       sender_nick = sender_nick.gsub(/[^0-9a-z]/i, '')

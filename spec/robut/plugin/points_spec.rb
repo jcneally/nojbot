@@ -23,6 +23,11 @@ describe Robut::Plugin::Points do
     @plugin.reply_to.replies.should eql(["JajaB:\t1", "LV:\t-2"])
   end
 
+  it "should not show points if not mentioned" do
+    @plugin.handle(Time.now, "LV", "show points")
+    @plugin.reply_to.replies.should eql([])
+  end
+
   context "25% of the time" do
     before do
       Random.stub(:rand).and_return(10)
