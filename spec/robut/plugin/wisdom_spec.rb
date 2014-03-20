@@ -28,8 +28,8 @@ describe Robut::Plugin::Wisdom do
     @plugin.reply_to.replies.should have_at_least(1).items
   end
 
-  it "does not provide words of wisdom if it is not mentioned" do
+  it "does nothing if it is not mentioned" do
     @plugin.handle(Time.now, "noj", "what do you think?")
-    @plugin.reply_to.replies.should have_at_least(0).items
+    @plugin.reply_to.replies.should eql([])
   end
 end
