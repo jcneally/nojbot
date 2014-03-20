@@ -7,8 +7,8 @@ class Robut::Plugin::Points
     if without_nick(message).match(/^show points/i)
       show_points
     else
-      sender_nick = sender_nick.sub(/@/, "")
-      if msgmatch = message.match(/@([a-zA-Z]+?)\s+?(\-?\+?\d+)/)
+      sender_nick = sender_nick.gsub(/[^0-9a-z]/i, '')
+      if msgmatch = message.match(/@([0-9a-z]+?)\s+?(\-?\+?\d+)/i)
         nick, points = msgmatch.captures
         retort = give_points(sender_nick, nick, points.to_i)
         reply(retort)
