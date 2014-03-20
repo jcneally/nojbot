@@ -8,5 +8,5 @@ require 'logger'
 
 load './Chatfile'
 
-Robut::Web.set ::connection, Robut::Connection.new.connect
+Robut::Web.set :connection, Robut::Connection.new.connect
 run Robut::Web
