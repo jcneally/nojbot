@@ -3,6 +3,7 @@ require 'robut/plugin/help'
 require 'robut/plugin/points'
 require 'robut/plugin/hug'
 require 'robut/plugin/wisdom'
+require 'robut/plugin/doge'
 
 # Add plugin classes to the Robut plugin list.
 # Plugins are handled in the order that they appear in this array.
@@ -10,6 +11,7 @@ Robut::Plugin.plugins << Robut::Plugin::Help
 Robut::Plugin.plugins << Robut::Plugin::Points
 Robut::Plugin.plugins << Robut::Plugin::Hug
 Robut::Plugin.plugins << Robut::Plugin::Wisdom
+Robut::Plugin.plugins << Robut::Plugin::Doge
 
 conf = YAML.load(File.read(File.join(File.dirname(__FILE__), "config", "config.yml")))
 
