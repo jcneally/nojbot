@@ -1,3 +1,5 @@
+require 'robut/storage/yaml_store'
+
 # Require plugins here
 require 'robut/plugin/help'
 require 'robut/plugin/points'
