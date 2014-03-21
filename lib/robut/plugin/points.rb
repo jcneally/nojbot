@@ -1,7 +1,7 @@
 class Robut::Plugin::Points
   include Robut::Plugin
 
-  desc "show points - List the scoreboard of hipchat points (separate from nojpoints!)"
+  desc "show points - nojbot collects points given to people during chat.  This commands displays the current point tally."
 
   def handle(time, sender_nick, message)
     if without_nick(message).match(/^show points/i) and sent_to_me?(message)

@@ -1,7 +1,7 @@
 class Robut::Plugin::Doge
   include Robut::Plugin
 
-  desc "doge/wow <such _> <much _> <wow> - create a doge meme."
+  desc "doge/wow text - create a doge meme from 'text'"
 
   match /^doge(.*$)/, :sent_to_me => true do |msg|
     reply(doge(msg))
@@ -15,6 +15,7 @@ class Robut::Plugin::Doge
     message.strip!
     if message.start_with? "doge"
       message = message[4..-1]
+      message = "wow " + message
       message.strip!
     end
     message.gsub!("such", "/such")
@@ -22,7 +23,7 @@ class Robut::Plugin::Doge
     message.gsub!("much", "/much")
     message.gsub!("very", "/very")
     message.gsub!("wow", "/wow")
-    message.gsub!(/\s|,|\.|;|:|\?|!|@/, '')
+    message.gsub!(/\s|,|\.|;|:|\?|!|@|_/, '')
     message = "/" + message if message[0] != '/'
     return "http://dogr.io#{message}.png"
   end
