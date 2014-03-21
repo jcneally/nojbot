@@ -17,7 +17,9 @@ Robut::Plugin.plugins << Robut::Plugin::Wisdom
 Robut::Plugin.plugins << Robut::Plugin::Doge
 Robut::Plugin.plugins << Robut::Plugin::Meme
 
-conf = YAML.load(File.read(File.join(File.dirname(__FILE__), "config", "config.yml")))
+config_path = File.join(File.dirname(__FILE__), "config", "config.yml")
+raise "Config file not found: #{config_path}" unless File.exists? config_path
+conf = YAML.load(File.read(config_path))
 
 # Configure the robut jabber connection and you're good to go!
 Robut::Connection.configure do |config|
