@@ -5618,3 +5618,1029 @@ AW
 /me is sad because the platform room just got really loud
 /me notes that this time it's not because of him.
 /me woe is me (lemon)-///-o
+That's bazaar.
+wait, this is immediately after installation?
+That's odd
+Hmm
+Hmm
+Let me try following the instructions myself and see what happens
+also, is he running 32 bit?
+Ok, that's it, the debian package is only for 64.
+If he needs to use 32 bit, he needs to use the gem
+That's the only package that has it.
+Yup
+k
+cool
+my pleasure.
+What do you mean by "over the top"?
+By didn't work, what exactly was the problem?
+Yup, that should be fine.
+Where/How did it error?
+oh
+no, that's correct
+686 and 386
+are both 32 bit
+the debian package is 64 bit
+amd64^
+yup
+We don't support 32 bit debian package officially
+Well, the instructions page says that the debian package is for linux 64 bit at the top
+We never advertised that we're supporting 32 bit.
+ah
+yeah
+That would be good =)
+I did
+if the reporting fails, the sdk ignores it and keeps going
+We've been reporting for the past couple of weeks, even though the handle hasn't been installed in apollo yet : p
+We kick off a sole thread that reports to apollo
+that thread blocks and waits for a response on our requests
+but that thread blocking should not affect the rest of the sdk
+yup
+yep yep
+k
+Hmm
+that seems like it's just for registering a mixer though
+can I register a moovweb build with that same handle too?
+oh, it looks like the old routes were removed in the latest build of apollo
+we did, it looks like that was removed.
+I guess we'd want to just add a new match rule for now, since the actual method hasn't changed.
+Or should it be a separate method?
+Do we have scheduled deploys? Or is it an on demand thing?
+ok
+Should I make an github issue for this?
+k
+Cool, thanks
+excellent
+In the mean time I'll just manually register them :p
+Hmmm
+That is a good question.
+Theoretically, yes
+But it hasn't been tested.
+Yeah, the goal for windows is so that they'll be able to do that, unfortunately it's still very immature now.
+I believe the policy is that we can provide them with an installer, but we warn them that it's beta
+and could be buggy.
+ok, yeah, I think that should be fine.
+The windows installer is only for 4.0+
+Hmm
+Yeah, generate didn't work for any build, windows, linux, etc...
+for 3.5 that is
+generate was plugged in on 4.0
+We could give them a pre-release of 4.0 that has generate in it.
+@SeanJ would be the man to talk to about getting the prelease.
+Yep :p
+They're already messing around with a buggy windows build, whatever we give them can only be better than what they already have....theoretically.
+<3 notepad++
+bro love
+ha
+http://obeygiant.com/images/2011/05/OBEYCELESTIA-500x662.png
+<3
+@JoshMorin do you still need help on the asset-host stuff?  Feel free to ping me whenever you're back if you do.
+@OJ Do you have a copy of the rewriter rules that you were using before? I'm trying to recreate your issue on a different project
+@KevinLiou mstage.cox.com looks like is broken.
+Did you recently push something to staging?
+Carl?
+That's old carl
+used-to-work-here-but-not-anymore-carl
+birds, what do they know
+but i'll try
+Have you tried cloning and push -f onto a different repo?
+ah, ok
+yeah, lemme take a look, that's kind of weird.
+ok
+Sorry it's taking me a while @BrianKendzior we were preocuppied with some other stuff earlier
+still looking into this.
+will let you know when I get somewhere
+@BrianKendzior all fixed
+Thank @ChrisMague
+I see
+I believe by default we do not cache anything through https
+Hmm, at lunch right now, I can take a look when I get back
+ah
+@NickOwens if you remove the utf-8 from there, does it work?
+Hmm, ok, I'll fix the generator.
+@NickOwens not yet, need to talk to jef to find out why it was there in the first place
+sure
+mrmrm
+give me a bit
+ok, so what you're saying is that when you run moov server it forks all these processes and doesn't clean them up?
+Have you tried doing the same thing with an older version of moov?  I feel like this might just be a go thing.
+And it looks like the processes are defunct, so wouldn't the OS clean them up eventually?
+@hari should be able to help, I'm at lunch
+k
+yeah, sorry, I don't have rep rights either
+Sean or Hcat are the ones I know that have it.  Maybe Laurent as well?
+magic
+there's a component in apollo called the site analyzer
+yeah, it's basically a crawler that starts crawling the page that your provide to the generate command
+and it gets as many domains as it can, making sure to order them correctly if there are any redirects
+yep
+ooooor
+I think there's an API for the analyzer
+you might be able to hit it
+lemme check
+http://nooooooooooooooo.com/
+fyi
+hrmm, hold on, the api call is there, but not sure how to hit it
+yep, you should thank @MatB for setting it up ;)
+Hmmmm.....I'd say let's avoid that for now, keep it internal
+eventually we'll add a command to the SDK
+that will spit it out nicely for you
+heh
+@JeffPatzer I would assume we'd just proxy over their robots.txt and they would have to have their own mobile rules there, no?
+@AlexDeSimone what version of manhattan were you using?
+yeah
+you have to tell git to push the branch that you want
+if you just push your local branch, it'll push that branch up to moovcloud
+but that branch is not the one we compile
+we only compile the master branch
+so what you wanna say to git is
+take my local "superbranch" and push it to the remote "master"
+I think there's an article in our help docs on how to do it
+http://help.moovweb.com/entries/21986091-can-i-push-a-branch-to-moovcloud
+what do you mean?
+you can always do a git push -f
+that will completely wipe out the remote and put whatever you have locally there
+Excellent
+oh
+what command did you use?
+can you copy paste the git commadn?
+hm
+weird
+have you tried without the -f?
+oh
+it's a tag
+not sure if it works with tags
+try making a new branch
+with that tag
+and doing that
+cool
+yeah, it's probably a git thing, you can't push tags to branches, makes sense
+no, that's important
+@SeanJ take a look at Brian's issue
+I assigned it to @AaronLeung
+Figured we'd want this for 4.1?
+Ah, ok, that makes sense then, since they're immutable.  Then I guess we have to wait for 4.2 for this.
+lemme try a quick example to see what happens for (a)
+.....I was gonna use my local box :p
+so this doesn't get caught by moov compile and causes an internal proxy error
+soooo, we should maybe change the issue to cause an error on moov compile?
+@AaronLeung @SeanJ for now we should maybe add an error at moov compile state?
+the request dies, but mps is still alive
+Response is a 500 with "Internal Server Error"
+Thank Mr. @HariAnanth for that
+I figured it should be enough to get you started on the plugins for sublime and textedit
+if you still wanted to do that.
+Sounds good =D
+yep
+sure
+you should be able to use the config.json that's in that branch
+nope, not needed
+hmm
+Well, as far as the sdk is concerned
+these are the sites we're proxying
+right, the idea is that it should be very explicit
+legally, we know exactly what gets proxied
+yup
+the good thing though is that adding a new pod should be easy
+and anyone with access to moovcloud could do it.
+@sarah did you try moov login again?
+Yeah, the auth token is set to expire every month
+or something like that
+then you have to reauth and it creates a new one (that should last somewhere around a month)
+As long as it doesn't keep asking you for your username/password, it should be good.
+Should've only asked you once
+Yup, then it's normal.
+yea, no worries
+yup, np
+np
+sorry, don't know =(  Can anyone else help here? @all
+okie dokes.
+match($varname) { ... }
+doesn't work?
+weird
+Hmmm
+Is this an error on a new project, or an existing one?
+I guess what I'm asking is whether it ever worked before, or it's never worked with this client
+test.prefferredpremier.net gives me a 503
+ah
+and you said that proxying their normal desktop site is fine?
+Hm, I suppose so
+Is that different?
+oh
+the domains are different
+Hmmm, Unfortunately, I'm not too sure, but my inclination is that their SSL certificate being self signed has something to do with it
+if you browse to the test.preferredpremier.net you get a broken ssl cert warning by chrome
+try this out:
+moov server --verify-ssl-cert=false
+and see if it works then.
+@MeganHallberg Can you make a JIRA issue about it under the MoovSDK project?  It seems like it would be rather involved and I can't get into it now.
+sure, np
+yes, there is
+v0.1 of it will just be a message that tells you you're using an out of date SDK
+4.2 will have this, I forgot if 4.1 has this or not.
+auto-upgrade will probably not be available until 4.3 or 4.4 though =(
+@Aaron might be able to tell you what's wrong here
+@Wonja if you go the the support room, someone can help you out there.
+Hey Ted, are you in the SF office?
+I can help you in person
+oh, cool
+excellent
+epic stack traces?
+You looking for some? I have plenty
+I sees I sees
+Yeah, try upgrading
+4.2+
+are you using compass or libsass?
+nice
+yeah, 4.0 had a lot of bugs in libsass
+4.1 is a lot more stable with libsass
+4.2 even more so
+ha
+yup
+4.2.189 is what the cool kids use
+oh
+yes
+that is true
+I guess only super cool special kids use 4.2.189 :p
+please
+most stable release
+v1
+I think it's still in the gem server
+so you can do
+err
+a "ruby" some would dare to say
+@superkev try pushing your project, and then checking if the response is gzipped
+you need to push first to flush the cache
+but the change is made (at least for SVG
+)
+cool
+same name in finalenv.json shoudl be the variable in tritium I think
+hmm
+yeah
+@Pav was it an SSL request?
+try running the server with the --verify-ssl=false flag
+sounds like the upstream is using an SSL protocol that we don't support.
+probably a really old version of SSL (maybe v1 or v2?)
+Hmm, don't know for sure.  @ZhigangChen2 what versions of SSL do we support when connecting upstream?
+np
+@all we've figured out the problem, solution should be in pretty soon.
+@ZhifengKoh the accepted way is for checking the presence of a "config.json" file for nosaka-based projects
+or the presence for "scripts/main.ts" file for older projects
+that should be fine too
+yup
+@cneale : @Gio is having some problems with pushing to moov cloud
+@Gio can you describe the problem again in here?
+github too?
+sounds like some local voodoo
+@cneale you around?
+annnnnnnnywho.  If you deleted your key, then it makes sense that you can't pull/push from github, because github probably only had your older key uploaded
+that should let you push/pull from github again
+and if you run moov login, it should upload your key to our server, which should let you push/pull to our stuff.
+cool, np
+no worries, just wanted you to see the problem and solution so that you're aware of how to solve it next time
+for github is to upload a new key, for us is to rerun moov login or also upload a new key
+hmm, did it work (what I mentioned earlier)?
+yeah
+that's right
+they should use moovguest
+yep, I chat with him all the time :p
+yup, all of them all the time
+prolly means they're using an encryption method we don't support for HTTPS
+I think we support TLS of all versions, but we don't support any of the SSL versions
+Yeah, so you need to find out what encryption method they're using for https exactly
+and the version
+If you click on the padlock icon next to "https" in the browser URL, it should tell you (do this on the normal site, not the proxy)
+I see
+ok
+so
+I *think* we're planning on getting support for SSL 3.0 in 4.4
+but as for what you can do now, well, before I say anything, I should talk to Zhigang and see what he's planning to do about it.
+I can't seem to find him right now unfortunately.
+shows up fine for me, tried it in a private browser session?
+uhh, no idea =/
+@Pav no, you keep using github for code versioning
+the moovcloud repos are only for deployment
+yup yup
+yup
+what's up, what happened?
+I'm in the middle of a talk :p
+and my phone buzzed
+with all these hipchat messages
+@hcatlin yeah, new mixer support is for 4.4, that hasn't rolled out yet
+no cloud support yet.
+you mean cookie scope?
+I *think* that's available in the latest 1.0.* simple mobile
+tritium.io should be updated with it
+1.0.224
+It's in the URL
+Hmmm, then it's possible it hasn't been released yet (maybe only pre-released)
+We do mixer releases alongside 4.4 releases, so tritium.io will be updated once that happens as well
+need anything else?  I have 10 minutes before the next talk
+I might drop by the office after it.
+for a little bit
+if it seems necessary.
+@hcatlin
+lol, okie dokes
+laters
+/me is surprised the internet was good enough to use hipchat
+did moovweb work?
+I just remembered that we need to update apollo to use the new name
+@2Shanez did moovweb work?
+ok, cool.
+oh, you're using the script directly
+ok, I'll make an issue in apollo to update the SDK rules
+(so you can use 'moov genereate' instead)
+alrighty, signing out again :p
+never again
+@JajaB jenkins3 shouldn't use up much space, if it does, we can probably clear a bunch
+before you switch to EBS, lemme clean up the box
+heh
+k
+that's weird
+I thought they were soft linked to eachother, but it doesn't appear that way
+ok
+I see now
+sorry, I'm a little off today
+Could really use a moscato monday
+heh, no moscato unfortunately, it's also not the same without ya
+<3 jaja
+weird
+hmm
+there's not that much extra cruft
+I was surprised to find out the clibs were 455MB
+but we need those to be there
+yeah, I guess there's not much I can clean up
+go for it
+cool
+k,
+@JajaB looks good to me
+admin is at a per bucket basis
+you prolly have admin for the buckets you frequent
+anyways, I commented your ticket like crazy, take looks :p
+yup, looking
+Interesting, have you tried it and it all looks good?
+Cool
+lemme test it out with the standard moov package, but looks like we shouldn't have any problems
+Cool
+Thanks @MatB and @cneale !
+@GGTY no, not at all.  We don't even support the omni-mobile mixer anymore.
+@DouglasDrouillard where does it stall?
+during the process, or rather, what's the last line you see while it's stalling
+Hmm
+We're planning a sprint on speeding up the build process
+A major part of it will be switching projects to use libsass instead of compass once libsass becomes more compliant
+the other part of it will be optimizing the host checking.
+And then there's all kinds of crazy other things we can do, but we still have to think of those
+@LV stil no linux instructions =(
+trust me, I tried :p
+@HellYeahMyNameIsScarey that's a dup, I commented
+no worries
+original what?
+ticket? I commented on the ones you guys did with the original ticket
+Yeah, it should be in a comment on the one you guys opened
+yup
+lol
+smallest learning curve of any programming language ever
+omg, so pro
+=(
+?
+oh
+yeah, what do you want to do with it?
+I know what you're talking about.
+the machine that is
+just log in, and run the vms that are there.
+I can help mobilize...in 20 minutes
+I can take a trip to wallgreens and buy balloons and stuff
+woops, wrong window
+ho hum
+what mac version are you running?
+and sdk version?
+Hmm, oh, you need to build the clibs first if you haven't done that yet
+weeeeird
+did you perchance update your OS recently?  Or ran some kind of system updates?
+Hmmm, try building the clibs again
+still broken? hmm
+hmmm
+when are you gettting the libyaml error, on what step?
+right, thats all of them
+oh
+weird
+type uname -a in the terminal?
+weird
+so you have a 32 bit mac machine
+Hmmm
+I wonder if somewhere in the code we assume that mac builds are 64 bit...
+although
+make should detect that
+how old is your laptop?
+is it a powerpc?
+or intel?
+Hmm
+ok
+@superkev what version of Go are you usin?
+k
+and you mentioned that you could build before, but only recently you coudlnt'?
+were you using the same go version then?
+try using go1.0.3
+What's the string trim thing error?
+wait...did you used to use our gems before?
+on that same laptop?
+or the brew install?
+yeah
+and it worked fine, right?
+and running it
+weeeeeird
+we only support 64 bit mac
+but your mac claims to be 32 bit
+yeah, it probably is 64 bits
+but for some reason, it says it's 32
+which doesn't make sense
+hrmrmrm
+can you try restarting it?  Not sure what that'll do, but something is definitely funky
+@iceman is this right now?
+can you show me the output of the console?
+as well as the exact command you ran
+oh, weird
+if you do a moov generate on the command line it should be fine.
+the page looks fine to me
+Hmm, I was just able to generate a project through console, everything looked good.
+ahh
+@cneale (iseewhatyoudidthere)
+Yeah, do what Chris said.
+I believe it's it getting kicked out of the cache
+lemme make sure of that
+@LV yup, it's logged when a slug gets kicked out of the cache
+@LV no, just tell him to try again
+we had issues, I fixed them, they should be good now
+@joshmorin plz try again, srykthnxbai
+cool
+@enahs le sad
+well
+one hamster
+actually two, I'm in there :p
+I haven't killed anything :p
+I'm but a silent observer in the buildbox
+I touch nothing, but tail -f everything
+? for mens wearhouse?  I figure because shane tried to kick off another one?
+wait
+the latest one passed
+v50 passed
+should be good >.>
+nooooooo
+ok
+now we wait again :p
+504? when you watch it where?
+You mean after clicking rebuild?
+ah
+file a bug
+dude, 51 failed
+someone kicked off 52?
+I see
+well
+52 looks good
+so
+lets not touch it
+the only slow part of the build was CDN :p
+noice
+it does two...weird
+nother bug to file.
+I'll file that one.
+or maybe
+I'll just comment on the one shane made
+<3 bugs
+hahaha
+HIRED
+Please do our QA job, kthnxbai
+I will pay you in empanadas
+only on mondays
+I can do chicken if you really want to, I was gonna do cheese and onion ones
+job well done
+@enahs best qa
+best qa (content)
+what about it are you confused?
+yeah, that's expected
+oh wait
+that's weird
+you're looking at a different project:
+you're hitting the project above
+The CNAME's pointing to eachother is funky on their end, but at the end of the day, the cname points to our infra, and our infra does the correct thing
+Is it DNS lesson time?
+yep
+our box ip
+and that IP
+can handle any project
+which project it choses to handle
+depends on the original host
+as long as the IP is pointing to our infra
+it doesn't matter
+all clusters in our infra can handle any project
+now
+if they wanted to setup SSL
+then they'd be fucked
+SSL is a per box thing
+so if they want SSL, we need to put their cert in a particular box, and then setup their CNAME to point to that box
+in this case, it would break because their using the CNAME of a different project
+rather than their own CNAME
+questions?
+Yeah, I saw it
+will do that soon
+it's been a busy mornin
+morning*
+holy freaking godly shit
+(soawesome)
+@JajaB should we do the same for slug syncing?  the PR was only for assets
+Yeah, let's do it.
+lemme see, how do I run the sync script if I only want to sync the single slug?
+k, will add that bit
+pretty decent, got cut in half
+try one out
+git pushes are pretty speedy now
+yup yup!
+Hmm
+when did you push?
+that doesn't work, it's just "moov version"
+@hcatlin that doesn't help me :p
+Hmm, so early this morning, around 8am
+I see, but the project is normally deployed using libsass then?
+weird
+If you rebuilt already, the old logs are wiped
+No, we only keep the most recent build
+lol
+no, it's fine...what exactly was the symptom though, I'm still unclear about that.
+what was the actual error we were seeing?
+ah
+so it sounds like a caching issue
+yeah, that's bazaar, it's possible that asset syncing might've failed the first time around?  I know Josh has changed the way we sync assets just yesterday
+cool, we just pushed a fix
+um
+not sure yet
+I need some input on that too
+regarding the no-rewriter mixer
+yeah
+so
+we'd need the customer to set an origin cname
+so
+www.josh.com would point to origin.josh.com
+no
+so
+when we hit origin.josh.com
+no rewriting will happen
+Host header will still read "www.josh.com"
+so the server running in origin.josh.com can create links accordingly (to www.josh.com)
+our delta gregs has remained the same.
+basically, yeah
+yeah
+there has to be something on the request that determines which project it belongs to
+yeah, but then the real question is, how to set the cookie to begin with.
+Yeah, I guess I'm worried about the MPS figuring out which project it is part :p
+if multiple projects can be linked to a host...
+I guess
+there could be markers
+we have to have a default project for a host
+but then
+the cookie overrides it
+maybe a URL parameter also overrides it?
+If we have those two things
+we should be able to determine it
+Hmmm, yeah, I think that's still up in the air
+cool
+thanks jaja
+I'll update the script again
+no guarantees
+is a good policy to have :p
+Hmm
+@JajaB still around? not sure what the problem was...
+also, why didn't hipchat email me about this -.-
+ends this week
+Friday is last day of the sprint
+there's no correct sass gem
+we've never locked it
+so for every new release, we've always used the latest sass
+for that particular release
+If you're asking what version of the sass gem is running when you push a project
+I can tell you that
+sass 3.1.17
+yeah
+that's compass/sass for you
+not much we can do there
+if it's a new project, you can use libsass, it's much much faster
+sadface
+@JajaB was at CPR training, in now
+what's up?
+it's not updating slugs?
+It's possible the slug daemon update thread might've died =/
+Though I thought we took precautions to make sure that wouldn't happen
+oh?
+what did you do to fix it?
+Hmm
+lemme check
+Yeah...
+I'll make a ticket for it.
+I do not understand what any of that means
+:p
+ah
+lol
+at this point it sounds like everything is game :p
+omg
+do it
+I want to see it too!
+wait
+what's our legal bounds right now/
+?
+>.>
+no
+I refuse
+to cheer up
+jenkins has no gvm
+I'm sad
+lol
+I guess we installed it manually on the other guys
+last time
+I don't think gvm was puppet controlled
+:p
+so how do you want to do this?
+lol
+looks like you were able to keep the same hostname?
+oh, no
+lol
+if you were gonna make new hostnames
+you could've named them something better :p
+like
+oh shit
+wait
+the linux node needs to be ubuntu 10.04 LTS
+it's 12.04 right now =(
+well
+that is
+if we want to support 10.04+, we need to build on 10.04
+If we build for 12.04, we only support 12.04+
+yeah, we dealt with this issue when we first set them up
+It's why we couldn't build on the master node
+and we had to use the slave which was older
+Yeah, I think it's the version of the standard libraries that are linked when we compile our clibs
+so when we compile our clibs on 12.04, it links to whatever version of the stdlib that 12.04 has
+and that version doesn't exist in 10.04
+but it's forwards compatible, so 10.04 versions are (soft linked) to the latest lib or something like that.
+by the way
+I heard that you taught the bot to handle points?
+so if I say
+@JajaB +1000
+you haz 1000 points now?
+=(
+Maybe I'll make a bot that listens to the social room.
+and just keeps track of points :p
+anywho
+before you break down the new jenkins box
+lemme ask Sean and Hampton if we care about supporting 10.04
+I mean
+it's pretty old
+12.04 is pretty old too, right? when did that come out?
+yeah
+so 10.03 is three years before 12.04
+ah
+neat
+ah, so 12.04 is still the latest LTS
+so there's probably a lot of people still running 10.04
+=/
+ok
+yeah, sorry, it didn't even occur to me until after I saw the version in jenkins
+yeah, but that just means that it doesn't get any more updates
+people can still run it.
+Hmm
+we can talk about the benefits/etc..
+I'm fine with using the latest
+but we hsould document
+such a negative nancy :p
+anyways, I guess we can run a simple test
+just to make sure I'm not full of shit
+yeah, if we can do that, that's fine.
+but yeah, the end use case is just being able to run our stuff in 10.04+
+however we do that, I don't think anyone would care :p
+also, @JajaB have you been looking at caesium, we're pretty close to finally running functions :p
+nah, you can kill it
+anyways, pair programming time
+goodbye!
+1.0.3 is the important one now
+Hmm, lemme see
+looks better ^.^
+they're two different things I think
+whenever a build comes in
+we zip it up
+and store it there
+that's used for rollback deploys
+yeah, that's what I said :p
+but people said it was fine for now
+Hmmm
+it's been
+probably a month?
+you can delete anything that's not a zip file in there
+I know there's some directories in there
+you can delete those
+just keep the ####.zip files
+yeah....
+it needs to be a proper file server
+it came from that
+yeah
+i guess the ebs volume was for testing
+not sure if we want to productize it now
+It's a 1TB volume, so we have time
+Talked to Laurent, he said there's still time to think about the proper solution, it's not just storage, but also how it will be maintained in the future, like, we should only be keeping the latest X builds for every project, not everything, so those parts should also be put into place before we decide how we'll store things.
+cool :p
+I removed a bunch of unused dirs
+now it's only 14 GB ^.^
+anyways, back to pairing!
+I brought that same thing up!!!
+I wanted to store things by directory
+but they told me to forget that and just store it all in one dir as the build id -.-
+GAH!
+screw the name!
+man*
+>.> man, you need to be in more of these conversations so that I'm not the only one saying this stuff to people :p
+-.-
+alrighty, back to pair programming!
+Hmm
+not worried about building packages
+but more so about building the clibs
+and making sure their dependencies are appropriately met.
+oh?
+hmmm
+is it like a virtual machine of sorts?
+oooh
+oh my
+it's like you've taken my breadth away
+installing it now, gonna play around with it.
+hmmm
+gonna have to learn how to use it...first time I ran the command it failed
+ah, I need debootstrap adn devscripts
+yeah
+hmm
+this is a lot to play around with for now...my head is not feeling great today, I'll try to look into it later though
+yeah
+seems simple enough, just got drowned in docks and got a headache while reading it
+but no biggie, I'll look at it tomorrow
+hahahha
+also, yay @JajaB how does it work?
+okie dokie
+so it'll output that to the console?
+also, what are the exit code statuses that I should worry about?
+so keep the build going even if cache flush fails?
+Hmmmm, fair enough
+but shoudl probably log it somewhere?
+gotcha
+er
+you mean edgecast?
+yeah, we're doing that
+right right
+yup
+we are
+sweet
+and....I should probably only flush the varnish caches after we upload and sync the new slug
+lol
+ok
+oh yeah, the MPS cache
+lol
+I worked so hard
+to tune down the build time
+I refuse to add a sleep 15 :p
+yeah, true
+Yeah....
+yeah
+@JajaB what do you think about forking a process that sleeps 10 seconds and then runs the flush cache?
+k
+hmm
+do you know how to guarantee that a subprocess I spawn in ruby does not get killed when the parent dies?
+I guess I can do fork, I was hoping for a more elegant way :p
+yeah, I guess I'll do fork, :p
+yup yup, alrighty :p
+cool
+I'm still not done with the code :p
+is that really bad?
+k
+lol
+heheh
+ha
+I'm game for all production level logs that personally insult me.
+oooh, link to ticket?
+nice
+that is the most adorable thing i've ever seen
+woots
+Figured it wouldn't hurt to have a another pair of eyes on this
+cool, merging.
+ready to check?
+/me is about to push
+ooh
+ok
+whaaaa
+did it log an error (it should've)
+of course
+waits 10 seconds :p
+should be roughly 10 seconds after the push is over since we do it at the very end
+Hmm
+hmm
+but if it's getting flushed at all
+it means that it's being called
+weeeeeeird
+maybe Process.detach changes the name of it?
+hmm?
+I see
+so it might not be calling it after all
+hmm
+gah
+blaaaaaah
+blah
+that means i need to make a shell script that wraps the logging and execute that from the fork
+with nohup
+I see
+but that loses the logging
+nope
+Might wrap everything into a separate ruby script and execute that with nohup
+Hmmmmm
+We don't have the hostnames at that level
+but yeah, I'll figure something out
+I'd do it now, but we're heading to a Go meetup soon
+Yup, no worries.
+thanks!
+will do
+ooooh
+that might be better ^.^
+hahaha
+alrighty, later
+@Z I took a quick look at the sterlingjewlers project, it seems like everything is setup ok, but they don't have our IP address white listed, so when our servers try to hit them, we just time out
+at least that's what my intuition is
+why not?
+oh wait
+are you saying that the space is there?
+oh
+yeah
+that's a fail
+complain to the apollos
+@cneale Shane has complaints for you.
+I agree, we should check that the input for that is relatively close to a real domain.
+supposed to copy to clipboard
+yeah
+I've complained about that too
+holy shit
+@GGTY is on fire
+and yet, you're able to recall all these tickets.
+<3 redbull zero
+(content)
+sounds like a bad idea
+sounds like a worse idea
+@MattMo for the absolutize_src ticket, did you want to use \z or \Z?
+the ticket says \z, but I think \Z makes more sense?
+\z and \Z are slightly different
+so
+/hi\Z/
+will match
+"hi"
+and "hi\n"
+/hi
+sorry
+/hi\z/
+will only match "hi"
+right, exactly
+\z is end of string
+so you have to be explicit
+with the new line
+so to match "hi\n"
+with lower case z
+you have to say
+/hi\\n\z/
+but capital Z let's you have a new line in there or not
+or rather, it will match it with a new line or without
+Hmm
+Hmm, now that I think about it, lower case z might be more appropriate for this case
+ok, well, @G3 replaced ^ adn $ with \A and \z
+show meeeeee
+ouchies
+ok
+we'll keep it at \z for now.
+sorry
+was investigating
+hmm
+HmmmI think that since it's a lowercase z, it would capture everything once as a whole
+@MattMo http://rubular.com/r/lubNZloQKL
+oh
+so
+if you don't have the "m" option
+then it would not match at all
+they do if you use lazy string match
+Hrmrmr
+or maybe not
+what happened?
+ew, tritium bug?
+file ticket!
+*goes back to making coffee*
+Lemme benchmark it
+Cool
+weeeeee
+@JajaB thanks
+@JajaB wait, seriously?
+I was planning on just using them as they were, you didn't have to do that!
+But thanks!
+lol
+thanks
+1.0 is the one we support
+You can haz all the features!
+(allthethings)
+We output that info in the stats I think
+Slug cache size
+Yeah, prolly useage, I can double check when I'm back in the office
+@SeanJ it was a mixer change, reassigned to Greg P, we've discussed the issues, new mixer will be released by today, including tests.
+omg
+I want to cry
+is this a customer issue?
+like, a live issue right now/
+yes
+Hm, what error are you seeing?
+oh dear
+that's not good
+lemme investigate
+k
+@aparna the Mixer.lock file for that project is malformatted
+it needs a space between the version and the name
+Cool
+np
+?
+if it's a rebuild, it doesn't show a commit hash
+yup
+eh
+that's weird
+looks like a brew bug
+run brew update, hopefully it's fixed in a newer release
+yeah
+lol
+I'll make the changes soon
+evaluating...
+@hcatlin code looks fine.  I like the initiative and drive that was necessary to code that.  I don't really care that much about the quality of hte code itself, but more so about the individual.
+Good coding practices can always be taught to good people
+I like the concept, he's basically doing part of what we did, the git deploy system, and then the server architecture
+It is a little messy, pretty messy actually, but I assume all personal projects are messy
+If you're working on something on your own, it'll always be messy
+But it's really cool.  I approve on the coding regard.
+@hcatlin something I would love to ask him is how he would feel about rewriting it from scratch.  What would he change, would he change anything? What would be better/worse
+Oh? You mean like this beauty? https://github.com/mdayaram/gitsy
+(allthethings)
+Let's get that guy in here for an interview STAT
+Give them everything they ask for!
+Yeah
+I agree
+although
+I like that you can run go source code without compiling it
+using go run
+obviously it compiles it on the fly
+and then runs it
+but have the command to do that is pretty neat
+lol :p
+what meeting?
+wait, we're meeting about something?
+(rdcry)
+It's ok, I'll just cry myself in my new corner
+what's it about?
+maybe I should crash it
+ahhh
+I would crash, but I guess I'm too busy
+btw
+@JajaB did you know I'm leaving for nearly all of November?
+@cneale
+@cneale
+@cneale
+(catbug)
+@all bye for most of November!
+pictures will be taken if i don't forget to pack my camera!
+@aparna yeah, the update is done =)
+Thanks (content)
+more is to come! hopefully the upcoming updates will go as seamlessly as this one >.>
+oooh
+I've seen some stuff in SFO regarding hello kitty
+but not this particular one
+they have a dress made of hello kitty-type plushes in sfo
+ooh, I like the polaroid-like camera (content)
+marcipan? Interesting
+isn't that just like candy?
+there's no way to get around the prompt other than setting the cookie
+you can set the cookie under .moovapp.com, and that will work
+you can do it from any website under moovapp
+is the website that's hosting the iframe not under moovapp?
+then clicking OK on the original prompt (the one that takes you to the main website should add the cookie under .moovapp.com
+so the iframe should just work
+is that not the case?
+oh, sorry, I misread
+Hmm, yeah, sorry, don't know what to tell you.  Only way to bypass the prompt is by having that cookie set
+you could do...
+in the config.json
+have something like
+hostmap: "mycompletely.differentsite.com => bar.com"
+where mycompletely.differentsite.com is a domain that you own
+and setup DNS for that
+while the upstream is the site that you don't own
+yeah
+okie dokie, cool
+cool
+@MichaelCatlin can prolly help you with that
+@bkendz @Cagri @enahs @iceman @aparna and anyone else I'm forgetting, the dev leads meeting is in dog path, it's the room next to what used to be Tarun's office
+Oh my
+so, should be correcting this
+give me two minutes
+@bkendz can you try now, 2.0.218 should be fine now
+woot
