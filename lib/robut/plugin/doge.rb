@@ -23,8 +23,12 @@ class Robut::Plugin::Doge
     message.gsub!("much", "/much")
     message.gsub!("very", "/very")
     message.gsub!("wow", "/wow")
-    message.gsub!(/\s|,|\.|;|:|\?|!|@|_/, '')
-    message = "/" + message if message[0] != '/'
+    message.gsub!("amaze", "/amaze")
+    message.gsub!("many", "/many")
+    message.gsub!(/,|\.|;|:|\?|!/, '/')
+    message.gsub!(/\s|@|_/, '')
+    message.squeeze!("/")
+    message.chop! if message.end_with? '/'
     return "http://dogr.io#{message}.png"
   end
 end
