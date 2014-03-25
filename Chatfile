@@ -34,8 +34,8 @@ Robut::Connection.configure do |config|
   # Custom @mention name
   config.mention_name = conf["hc_mention_name"]
 
-  # Ignore personal messages
-  config.enable_private_messaging = false
+  # Allow personal messages
+  config.enable_private_messaging = true
 
   # Come plugins require storage
   Robut::Storage::YamlStore.file = conf["yaml_storage_path"]
