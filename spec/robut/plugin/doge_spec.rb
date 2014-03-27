@@ -18,6 +18,11 @@ describe Robut::Plugin::Doge do
     @plugin.reply_to.replies.should eql(["http://dogr.io/wow/suchmeme/soastound/wow.png"])
   end
 
+  it "generates a doge meme even with mixed case" do
+    @plugin.handle(Time.now, "noj", "@robut DOGE WOW, SUCH MEME, SO ASTOUND, WOW!")
+    @plugin.reply_to.replies.should eql(["http://dogr.io/wow/suchmeme/soastound/wow.png"])
+  end
+
   it "does nothing if it's not mentioned" do
     @plugin.handle(Time.now, "noj", "wow, such meme, so astound, wow!")
     @plugin.reply_to.replies.should eql([])

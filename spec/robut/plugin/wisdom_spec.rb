@@ -28,6 +28,11 @@ describe Robut::Plugin::Wisdom do
     @plugin.reply_to.replies.should have_at_least(1).items
   end
 
+  it "provides words of wisdom in mixed case" do
+    @plugin.handle(Time.now, "noj", "@robut WHAT DO YOU THINK?")
+    @plugin.reply_to.replies.should have_at_least(1).items
+  end
+
   it "does nothing if it is not mentioned" do
     @plugin.handle(Time.now, "noj", "what do you think?")
     @plugin.reply_to.replies.should eql([])
