@@ -3,16 +3,17 @@ class Robut::Plugin::Doge
 
   desc "doge/wow text - create a doge meme from 'text'"
 
-  match /^doge(.*$)/, :sent_to_me => true do |msg|
+  match /^doge(.*$)/i, :sent_to_me => true do |msg|
     reply(doge(msg))
   end
 
-  match /(^wow.*$)/, :sent_to_me => true do |msg|
+  match /(^wow.*$)/i, :sent_to_me => true do |msg|
     reply(doge(msg))
   end
 
   def doge(message)
     message.strip!
+    message.downcase!
     if message.start_with? "doge"
       message = message[4..-1]
       message = "wow " + message
